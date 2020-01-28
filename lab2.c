@@ -1,6 +1,9 @@
-k;
+int k;
 double sin (), cos ();
-main ()
+
+void printDonut(char buffer[]);
+
+int main()
 {
     //A and B are the angles at which the donut is rotated
     float A = 0, B = 0, i, j, z[1760];
@@ -29,10 +32,16 @@ main ()
 	        }
         }
         printf ("\x1b[H");
-        for (k = 0; 1761 > k; k++)
-	        putchar (k % 80 ? buffer[k] : 10);
-        //Incrementing A and B is what causes the donut to rotate each iteration
+        printDonut(buffer);
         A += 0.04;
         B += 0.02;
     }
-}	    
+    return 0;
+}
+
+void printDonut(char buffer[])
+{
+    for (k = 0; 1761 > k; k++)
+        putchar (k % 80 ? buffer[k] : 10);
+}
+
