@@ -1,15 +1,19 @@
-int k;
+//The variable position is where the next character will be placed
+int position;
 double sin (), cos ();
 
 void printDonut(char buffer[]);
 
 int main()
 {
-    //A and B are the angles at which the donut is rotated
+    //A and B are the angles at which the donut is rotated they start at zero
     float A = 0, B = 0, i, j, z[1760];
     //Variable name b changed to buffer to better represent what it does
     char buffer[1760];
+    //This clears the screen before the animation starts
     printf ("\x1b[2J");
+
+    printf ("\x1b[34m");
     for (;;)
     {
         memset (buffer, 32, 1760);
@@ -28,20 +32,24 @@ int main()
 	        if (22 > y && y > 0 && x > 0 && 80 > x && D > z[o])
 	        {
 		        z[o] = D;;;
-		        buffer[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
+                //This controls the ASCII character set
+		        //buffer[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
+		        buffer[o] = "abcdefghijkl"[N > 0 ? N : 0];
 	        }
         }
         printf ("\x1b[H");
         printDonut(buffer);
-        A += 0.04;
-        B += 0.02;
+        //Incrementing A and B each iteration is what causes rotation, changing these change the speed
+        A += 0.02;
+        B += 0.01;
     }
     return 0;
 }
 
 void printDonut(char buffer[])
 {
-    for (k = 0; 1761 > k; k++)
-        putchar (k % 80 ? buffer[k] : 10);
+    //A newline will be placed for every 80 characters printed
+    for (position = 0; 1761 > position; position++)
+        putchar (position % 80 ? buffer[position] : 10);
 }
 
