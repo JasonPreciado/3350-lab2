@@ -2,12 +2,14 @@ k;
 double sin (), cos ();
 main ()
 {
+    //A and B are the angles at which the donut is rotated
     float A = 0, B = 0, i, j, z[1760];
-    char b[1760];
+    //Variable name b changed to buffer to better represent what it does
+    char buffer[1760];
     printf ("\x1b[2J");
     for (;;)
     {
-        memset (b, 32, 1760);
+        memset (buffer, 32, 1760);
         memset (z, 0, 7040);
     for (j = 0; 6.28 > j; j += 0.07)
 	    for (i = 0; 6.28 > i; i += 0.02)
@@ -23,12 +25,13 @@ main ()
 	        if (22 > y && y > 0 && x > 0 && 80 > x && D > z[o])
 	        {
 		        z[o] = D;;;
-		        b[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
+		        buffer[o] = ".,-~:;=!*#$@"[N > 0 ? N : 0];
 	        }
         }
         printf ("\x1b[H");
         for (k = 0; 1761 > k; k++)
-	        putchar (k % 80 ? b[k] : 10);
+	        putchar (k % 80 ? buffer[k] : 10);
+        //Incrementing A and B is what causes the donut to rotate each iteration
         A += 0.04;
         B += 0.02;
     }
