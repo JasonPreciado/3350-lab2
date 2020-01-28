@@ -7,7 +7,7 @@ void printDonut(char buffer[]);
 int main()
 {
     //A and B are the angles at which the donut is rotated they start at zero
-    float A = 0, B = 0, i, j, z[1760];
+    float A = 90, B = 0, i, j, z[1760];
     //Variable name b changed to buffer to better represent what it does
     char buffer[1760];
     //This clears the screen before the animation starts
